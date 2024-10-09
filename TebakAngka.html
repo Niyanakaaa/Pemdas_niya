@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permainan Tebak Angka</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Permainan Tebak Angka</h1>
+    <p>Tebak angka antara 1 sampai 50!</p>
+    <input type="number" id="guess" min="1" max="50">
+    <button onclick="checkGuess()">Tebak</button>
+
+    <div class="result" id="result"></div>
+    <div class="result" id="hint"></div>
+    <div class="result" id="attempts"></div>
+
+    <script>
+        const randomNumber = Math.floor(Math.random() * 50) + 1;
+        let attemptsLeft = 5;
+
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById('guess').value);
+            const result = document.getElementById('result');
+            const hint = document.getElementById('hint');
+            const attempts = document.getElementById('attempts');
+
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 50) {
+                result.textContent = "Silakan masukkan angka yang valid antara 1 dan 50.";
+                return;
+            }
+
+            attemptsLeft--;
+
+            if (userGuess === randomNumber) {
+                result.textContent = "Selamat! Anda benar!";
+                hint.textContent = "";
+                attempts.textContent = "";
+                return;
+            } else if (userGuess < randomNumber) {
+                hint.textContent = "Angka yang dicari lebih tinggi.";
+            } else {
+                hint.textContent = "Angka yang dicari lebih rendah.";
+            }
+
+            if (attemptsLeft === 0) {
+                result.textContent = "Kesempatan Anda habis! Angka yang dicari adalah " + randomNumber + ".";
+                hint.textContent = "";
+                attempts.textContent = "";
+            } else {
+                attempts.textContent = "Kesempatan tersisa: " + attemptsLeft;
+            }
+        }
+    </script>
+
+</body>
+</html>
