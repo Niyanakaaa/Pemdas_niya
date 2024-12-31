@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pelaporan Kebersihan Rumah Sakit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        form input, form select, form textarea, form button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #ddd;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistem Laporan Kebersihan Rumah Sakit</h1>
+    </header>
+    <main>
+        <form action="#" method="post">
+            <label for="namaPelapor">Nama</label>
+            <input type="text" id="namaPelapor" name="namaPelapor" placeholder="Masukkan Nama Lengkap Anda" required>
+
+            <label for="ruangan">Ruangan/Fasilitas</label>
+            <select id="ruangan" name="ruangan" required>
+                <option value="kamar-pasien">Kamar Pasien</option>
+                <option value="ruang-tunggu">Ruang Tunggu</option>
+                <option value="kamar-mandi">Kamar Mandi</option>
+                <option value="lorong">Lorong</option>
+                <option value="ruang-rawat-inap">Ruang Rawat Inap</option>
+            </select>
+
+            <label for="keterangan">Keterangan</label>
+            <textarea id="keterangan" name="keterangan" rows="4" placeholder="Jelaskan kondisi kebersihan dan masalah yang perlu diperbaiki..." required></textarea>
+
+            <button type="submit">Kirim Laporan</button>
+      
